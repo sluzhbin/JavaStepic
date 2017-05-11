@@ -1,4 +1,5 @@
 package testserialization;
+
 /*Дан сериализуемый класс Animal:
  * 
 class Animal implements Serializable {
@@ -34,24 +35,22 @@ import java.io.*;
 
 public class AnimalArray {
 
-		public static Animal[] deserializeAnimalArray(byte[] data) throws IllegalArgumentException{
-			Animal[] animals = null;
-			int len;
-			ObjectInputStream in = null;
-			try{
-				in = new ObjectInputStream(new ByteArrayInputStream(data));
-				len = in.readInt();
-				animals = new Animal[len];
-				for(int i = 0; i < len; i++){
-					animals[i] = (Animal) in.readObject();
-				}
-				in.close();
-			} catch(Exception e){
-				throw new IllegalArgumentException();
+	public static Animal[] deserializeAnimalArray(byte[] data) throws IllegalArgumentException {
+		Animal[] animals = null;
+		int len;
+		ObjectInputStream in = null;
+		try {
+			in = new ObjectInputStream(new ByteArrayInputStream(data));
+			len = in.readInt();
+			animals = new Animal[len];
+			for (int i = 0; i < len; i++) {
+				animals[i] = (Animal) in.readObject();
 			}
-			return animals;
+			in.close();
+		} catch (Exception e) {
+			throw new IllegalArgumentException();
 		}
-		
-
+		return animals;
 	}
 
+}

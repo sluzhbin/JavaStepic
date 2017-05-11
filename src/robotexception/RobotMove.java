@@ -35,14 +35,16 @@ public class RobotMove {
 	public static void moveRobot(RobotConnectionManager robotConnectionManager, int toX, int toY) {
 		int maxAttempt = 3;
 		boolean success = false;
-		for(int i = 1; !success && i <= maxAttempt; ++i){
-			try(RobotConnection connection = robotConnectionManager.getConnection()){
+		for (int i = 1; !success && i <= maxAttempt; ++i) {
+			try (RobotConnection connection = robotConnectionManager.getConnection()) {
 				connection.moveRobotTo(toX, toY);
 				success = true;
-			} catch(RobotConnectionException e) {};
+			} catch (RobotConnectionException e) {
+			}
+			;
 		}
 		if (!success) {
-	        throw new RobotConnectionException("3 attempts failed");
-	    }
+			throw new RobotConnectionException("3 attempts failed");
+		}
 	}
 }

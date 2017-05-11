@@ -9,18 +9,18 @@
  */
 public class Palindrome {
 
-	
-		public static boolean isPalindrome(String text) {
-			String s1 = text.replaceAll("[^a-zA-Z0-9]", "");
-			StringBuilder sb = new StringBuilder();
-			sb.append(s1);
-			sb.reverse();
-			String s2 = sb.toString();
-			boolean contentIgnoreCase = s2.equalsIgnoreCase(s1);
-			return contentIgnoreCase;
-		}
-		public static void main(String[] args) {
-			System.out.println(isPalindrome("Madam, I'm Adam!"));
+	public static boolean isPalindrome(String text) {
+		String s1 = text.replaceAll("[^a-zA-Z0-9]", "");
+		StringBuilder sb = new StringBuilder();
+		sb.append(s1);
+		sb.reverse();
+		String s2 = sb.toString();
+		boolean contentIgnoreCase = s2.equalsIgnoreCase(s1);
+		return contentIgnoreCase;
+	}
+
+	public static void main(String[] args) {
+		System.out.println(isPalindrome("Madam, I'm Adam!"));
 	}
 
 }
